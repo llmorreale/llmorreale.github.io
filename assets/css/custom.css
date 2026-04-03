@@ -230,8 +230,149 @@ a.bluesky-icon .label {
 }
 
 /* ── About section ───────────────────────────────────────────── */
-.major h2 {
+/* Override template's #a100b0 purple — needs matching specificity */
+header.major h2 {
+    color: #2c4a3e;
+    font-size: 2.75em;
+}
+
+/* ── Research → Projects link ────────────────────────────────── */
+p.research-projects-link {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+    font-size: 0.9em;
+}
+
+p.research-projects-link a {
+    color: #3d8a5e;
+    border-bottom: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+p.research-projects-link a:hover {
+    color: #2c6846 !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   PROJECTS SECTION
+══════════════════════════════════════════════════════════════ */
+
+#projects {
+    background: #fff;
+}
+
+/* Individual project blocks */
+.project {
+    margin-bottom: 3.5em;
+    padding-bottom: 3em;
+    border-bottom: 1px solid #ddeae2;
+}
+
+.project:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* ── Publication figure cards ────────────────────────────────── */
+h5.pub-figure-heading {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #5a8a6a;
+    margin-top: 1.75em;
+    margin-bottom: 1em;
+    border: none;
+}
+
+.pub-figures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75em;
+}
+
+.pub-figure-card {
+    border: 1px solid #cdddd4;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f9fbfa;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease;
+}
+
+.pub-figure-card:hover {
+    box-shadow: 0 4px 18px rgba(44, 74, 62, 0.12);
+}
+
+.pub-figure-img {
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #ddeae2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pub-figure-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.pub-figure-card:hover .pub-figure-img img {
+    transform: scale(1.03);
+}
+
+.pub-figure-body {
+    padding: 1.1em 1.25em 1.25em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.pub-figure-body .pub-title {
+    display: block;
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 700;
+    font-size: 0.9em;
     color: #1a2b22;
+    margin-bottom: 0.35em;
+    line-height: 1.4em;
+}
+
+.pub-figure-body .pub-journal {
+    display: block;
+    font-size: 0.8em;
+    font-style: italic;
+    color: #3d8a5e;
+    margin-bottom: 0.75em;
+}
+
+.pub-figure-body p {
+    font-size: 0.85em;
+    line-height: 1.7em;
+    color: #4a4a4a;
+    margin-bottom: 0;
+}
+
+/* Alternate background on Publications to maintain rhythm */
+#three {
+    background: #f3f7f4;
+}
+
+@media screen and (max-width: 736px) {
+    .pub-figures {
+        grid-template-columns: 1fr;
+    }
 }
 
 
