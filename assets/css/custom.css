@@ -236,6 +236,114 @@ a.bluesky-icon .label {
 
 
 /* ══════════════════════════════════════════════════════════════
+   BANNER CAROUSEL
+══════════════════════════════════════════════════════════════ */
+
+.banner-carousel {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    background: #1a2b22;  /* deep green shows while images load */
+}
+
+/* All slides stacked, invisible by default */
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* ── Arrow buttons ───────────────────────────────────────────── */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(26, 43, 34, 0.5);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    font-size: 2.2em;
+    line-height: 1;
+    padding: 0.2em 0.55em 0.25em;
+    border-radius: 4px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    z-index: 20;
+    font-family: sans-serif;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.carousel-btn:hover {
+    background: rgba(26, 43, 34, 0.82);
+    border-color: rgba(127, 212, 164, 0.6);
+    color: #7fd4a4;
+}
+
+.carousel-btn.prev { left: 1.1em; }
+.carousel-btn.next { right: 1.1em; }
+
+/* ── Dot indicators ──────────────────────────────────────────── */
+.carousel-dots {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.55em;
+    z-index: 20;
+}
+
+.carousel-dots .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.carousel-dots .dot:hover {
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.carousel-dots .dot.active {
+    background: #7fd4a4;
+    border-color: #7fd4a4;
+    transform: scale(1.3);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media screen and (max-width: 980px) {
+    .banner-carousel { height: 320px; }
+    .carousel-btn { font-size: 1.8em; }
+}
+
+@media screen and (max-width: 736px) {
+    .banner-carousel { height: 220px; }
+    .carousel-btn {
+        font-size: 1.4em;
+        padding: 0.15em 0.45em 0.2em;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════════════ */
 

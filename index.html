@@ -49,8 +49,43 @@
 
 						<!-- One: About -->
 							<section id="one">
-								<div class="image main" data-position="center">
-									<img src="images/banner1.jpg" alt="" />
+								<div class="banner-carousel" aria-label="Photo slideshow">
+									<div class="carousel-slide active">
+										<img src="images/banner1.jpg" alt="Forest research" />
+									</div>
+									<div class="carousel-slide">
+										<img src="images/pic01.jpg" alt="Field work" />
+									</div>
+									<div class="carousel-slide">
+										<img src="images/pic02.jpg" alt="Forest ecology" />
+									</div>
+									<div class="carousel-slide">
+										<img src="images/pic03.jpg" alt="Data science" />
+									</div>
+									<div class="carousel-slide">
+										<img src="images/Morreale_ForestEdge.jpg" alt="Forest edge" />
+									</div>
+									<div class="carousel-slide">
+										<img src="images/kingston_lake_forest_edge.jpg" alt="Kingston Lake forest edge" />
+									</div>
+									<div class="carousel-slide">
+										<img src="images/serc old edge.jpg" alt="SERC old edge" />
+									</div>
+									<div class="carousel-slide">
+										<img src="images/Mcgowan.jpg" alt="McGowan" />
+									</div>
+									<button class="carousel-btn prev" aria-label="Previous photo">&#8249;</button>
+									<button class="carousel-btn next" aria-label="Next photo">&#8250;</button>
+									<div class="carousel-dots" role="tablist">
+										<button class="dot active" aria-label="Photo 1" aria-selected="true"></button>
+										<button class="dot" aria-label="Photo 2" aria-selected="false"></button>
+										<button class="dot" aria-label="Photo 3" aria-selected="false"></button>
+										<button class="dot" aria-label="Photo 4" aria-selected="false"></button>
+										<button class="dot" aria-label="Photo 5" aria-selected="false"></button>
+										<button class="dot" aria-label="Photo 6" aria-selected="false"></button>
+										<button class="dot" aria-label="Photo 7" aria-selected="false"></button>
+										<button class="dot" aria-label="Photo 8" aria-selected="false"></button>
+									</div>
 								</div>
 								<div class="container">
 									<header class="major">
@@ -133,6 +168,66 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+		<!-- Banner Carousel -->
+		<script>
+		(function () {
+			var slides = document.querySelectorAll('.carousel-slide');
+			var dots   = document.querySelectorAll('.carousel-dots .dot');
+			var current = 0;
+			var timer;
+			var INTERVAL = 5000;
+
+			function goTo(index) {
+				slides[current].classList.remove('active');
+				dots[current].classList.remove('active');
+				dots[current].setAttribute('aria-selected', 'false');
+				current = (index + slides.length) % slides.length;
+				slides[current].classList.add('active');
+				dots[current].classList.add('active');
+				dots[current].setAttribute('aria-selected', 'true');
+			}
+
+			function startTimer() {
+				timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
+			}
+
+			function resetTimer() {
+				clearInterval(timer);
+				startTimer();
+			}
+
+			document.querySelector('.carousel-btn.next').addEventListener('click', function () {
+				goTo(current + 1);
+				resetTimer();
+			});
+
+			document.querySelector('.carousel-btn.prev').addEventListener('click', function () {
+				goTo(current - 1);
+				resetTimer();
+			});
+
+			dots.forEach(function (dot, i) {
+				dot.addEventListener('click', function () {
+					goTo(i);
+					resetTimer();
+				});
+			});
+
+			/* Pause auto-advance while the user hovers */
+			var carousel = document.querySelector('.banner-carousel');
+			carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
+			carousel.addEventListener('mouseleave', startTimer);
+
+			/* Keyboard support when focused inside the carousel */
+			carousel.addEventListener('keydown', function (e) {
+				if (e.key === 'ArrowLeft')  { goTo(current - 1); resetTimer(); }
+				if (e.key === 'ArrowRight') { goTo(current + 1); resetTimer(); }
+			});
+
+			startTimer();
+		})();
+		</script>
 
 	</body>
 </html>
