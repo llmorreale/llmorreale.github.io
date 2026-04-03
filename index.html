@@ -11,7 +11,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom.css" />
-		<!-- Font Awesome 6 for Bluesky / Google Scholar brand icons -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css" integrity="sha512-58P9Hy7II0YeXLv+iFiLCv1rtLW47xmiRpC1oFafeKNShp8V5bKV/ciVtYqbk2YZ8YxDbk1Wsnaqbn6zGhDow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body class="is-preload">
@@ -26,10 +25,10 @@
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="/" class="active">About</a></li>
-						<li><a href="research/">Research</a></li>
-						<li><a href="research/#projects">Projects</a></li>
-						<li><a href="publications/">Publications</a></li>
+						<li><a href="/" class="active"><i class="icon solid fa-home"></i> About</a></li>
+						<li><a href="research/"><i class="icon solid fa-tree"></i> Research</a></li>
+						<li><a href="research/#projects"><i class="icon solid fa-flask"></i> Projects</a></li>
+						<li><a href="publications/"><i class="icon solid fa-book"></i> Publications</a></li>
 					</ul>
 				</nav>
 				<footer>
@@ -147,26 +146,18 @@
 			}
 
 			document.querySelector('.carousel-btn.next').addEventListener('click', function () {
-				goTo(current + 1);
-				resetTimer();
+				goTo(current + 1); resetTimer();
 			});
-
 			document.querySelector('.carousel-btn.prev').addEventListener('click', function () {
-				goTo(current - 1);
-				resetTimer();
+				goTo(current - 1); resetTimer();
 			});
-
 			dots.forEach(function (dot, i) {
-				dot.addEventListener('click', function () {
-					goTo(i);
-					resetTimer();
-				});
+				dot.addEventListener('click', function () { goTo(i); resetTimer(); });
 			});
 
 			var carousel = document.querySelector('.banner-carousel');
 			carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
 			carousel.addEventListener('mouseleave', startTimer);
-
 			carousel.addEventListener('keydown', function (e) {
 				if (e.key === 'ArrowLeft')  { goTo(current - 1); resetTimer(); }
 				if (e.key === 'ArrowRight') { goTo(current + 1); resetTimer(); }
