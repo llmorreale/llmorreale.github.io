@@ -140,6 +140,20 @@ a.bluesky-icon .label {
     display: none;
 }
 
+/* Google Scholar icon (FA6) — same sizing treatment as Bluesky */
+a.google-scholar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25em;
+    line-height: 1;
+    border: 0;
+}
+
+a.google-scholar-icon .label {
+    display: none;
+}
+
 
 /* ══════════════════════════════════════════════════════════════
    MOBILE TITLE BAR
