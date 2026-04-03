@@ -250,6 +250,105 @@ header.major h2 {
     font-size: 2.75em;
 }
 
+/* ── Nav icons ───────────────────────────────────────────────── */
+#header > nav ul li a .icon {
+    margin-right: 0.45em;
+    font-size: 0.85em;
+    opacity: 0.85;
+}
+
+/* ── Research theme cards ────────────────────────────────────── */
+.research-themes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.25em;
+    margin-top: 2em;
+}
+
+a.research-theme-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #cdddd4;
+    border-radius: 6px;
+    padding: 1.5em 1.4em 1.5em;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+a.research-theme-card:hover {
+    box-shadow: 0 4px 18px rgba(44, 74, 62, 0.14);
+    border-color: #5aaa7a;
+    transform: translateY(-2px);
+    color: inherit;
+}
+
+.theme-icon {
+    font-size: 1.6em;
+    color: #3d8a5e;
+    margin-bottom: 0.6em;
+    line-height: 1;
+}
+
+.theme-icon .icon {
+    font-size: inherit;
+}
+
+.theme-body .theme-title {
+    display: block;
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 700;
+    font-size: 0.85em;
+    color: #1a2b22;
+    margin-bottom: 0.6em;
+    line-height: 1.4em;
+}
+
+.theme-body p {
+    font-size: 0.82em;
+    line-height: 1.7em;
+    color: #4a4a4a;
+    margin-bottom: 0;
+}
+
+/* Hint arrow on hover */
+a.research-theme-card::after {
+    content: '↓';
+    display: block;
+    text-align: right;
+    color: #5aaa7a;
+    font-size: 1em;
+    margin-top: auto;
+    padding-top: 0.75em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+a.research-theme-card:hover::after {
+    opacity: 1;
+}
+
+@media screen and (max-width: 980px) {
+    .research-themes {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── pub-figure-card as full link ────────────────────────────── */
+a.pub-figure-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+
+a.pub-figure-card:hover {
+    border-color: #5aaa7a;
+    color: inherit;
+}
+
 /* ── Research → Projects link ────────────────────────────────── */
 p.research-projects-link {
     margin-top: 1.5em;
